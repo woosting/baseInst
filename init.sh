@@ -14,10 +14,16 @@ USER=$1
   echo "" >> /home/${USER}/.bashrc
   echo "###" >> /home/${USER}/.bashrc
   echo "# INIT.SH ADDITIONS" >> /home/${USER}/.bashrc
+  echo "# Things automatically added by the init.sh script:" >> /home/${USER}/.bashrc
   echo "# Grouping directories first:" >> /home/${USER}/.bashrc
   echo "alias ls='ls --color=auto --group-directories-first'" >> /home/${USER}/.bashrc
-  echo "# Display logo at bash login:" >> /home/${USER}/.bashrc
-  #echo "if [ -f /usr/bin/linux_logo ]; then linuxlogo -u -y; fi" >> /home/${USER}/.bashrc
-  #echo "" >> /home/${USER}/.bashrc
+  echo "" >> /home/${USER}/.bashrc
   echo "###" >> /home/${USER}/.bashrc
   echo "# MANUAL ADDITIONS" >> /home/${USER}/.bashrc
+  echo "# Add your own:" >> /home/${USER}/.bashrc
+  echo "" >> /home/${USER}/.bashrc
+  echo "###" >> /home/${USER}/.bashrc
+  echo "# LAST TO EXECUTE" >> /home/${USER}/.bashrc
+  echo "# Things to run at the end of .bashrc loading:" >> /home/${USER}/.bashrc
+  #echo "# Display logo at bash login:" >> /home/${USER}/.bashrc
+  #echo "if [ -f /usr/bin/linux_logo ]; then linuxlogo -u -y; fi" >> /home/${USER}/.bashrc
