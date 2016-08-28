@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 USER=$1
+TODAY=$(date +%Y%m%d)
 #
 # UPDATE + UPGRADE + INSTALLS
   apt-get update && apt-get install -y dist-upgrade
@@ -11,6 +12,8 @@ USER=$1
   usermod -aG sudo ${USER}
   mkdir /home/${USER}/.ssh/ && touch /home/${USER}/.ssh/authorized_keys
   chown ${USER}:${USER} -R /home/${USER}/.ssh && chmod 700 /home/${USER}/.ssh && chmod 600 /home/${USER}/.ssh/authorized_keys
+# UX
+  cp /home/${USER}/.bashrc /home/${USER}/.bashrc.bak${TODAY}
   echo "" >> /home/${USER}/.bashrc
   echo "###" >> /home/${USER}/.bashrc
   echo "# INIT.SH ADDITIONS" >> /home/${USER}/.bashrc
