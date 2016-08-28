@@ -9,7 +9,7 @@ if [ $1 -eq 0 ]
   else
     # UPDATE + UPGRADE + INSTALLS
       apt-get update && apt-get install -y dist-upgrade
-      apt-get install -y vim colordiff screen linuxlogo cifs-utils
+      apt-get install -y vim colordiff screen linuxlogo
       #apt-get install -y linuxlogo
     # USER ADDITION
       adduser --disabled-password --gecos "${USER}" ${USER}
