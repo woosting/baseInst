@@ -5,7 +5,7 @@ TODAY=$(date +%Y%m%d)
 
 if [ $1 -eq 0 ]
   then
-    echo "Please provide a desired username as the first argument"
+    echo "Usage: init username"
   else
     # UPDATE + UPGRADE + INSTALLS
       apt-get update && apt-get install -y dist-upgrade
