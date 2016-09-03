@@ -18,8 +18,6 @@ if [ $1 -eq 0 ]
       chown ${USER}:${USER} -R /home/${USER}/.ssh && chmod 700 /home/${USER}/.ssh && chmod 600 /home/${USER}/.ssh/authorized_keys
     # CUSTOM SCRIPTS
       mkdir /home/${USER}/scripts
-      wget -P /home/${USER}/scripts https://raw.githubusercontent.com/woosting/dire/master/dire.sh && \
-        ln -s /home/${USER}/scripts/dire.sh /usr/local/bin/dire
       wget -P /home/${USER}/scripts https://raw.githubusercontent.com/woosting/dirp/master/dirp.sh && \
         ln -s /home/${USER}/scripts/dirp.sh /usr/local/bin/dirp
       wget -P /home/${USER}/scripts https://raw.githubusercontent.com/woosting/stba/master/stba.sh && \
