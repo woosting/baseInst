@@ -33,7 +33,7 @@ if [ $1 -eq 0 ]
       echo "# Grouping directories first:" >> /home/${USER}/.bashrc
       echo "alias ls='ls --color=auto --group-directories-first'" >> /home/${USER}/.bashrc
       echo "alias weather='wget -qO- wttr.in'" >> /home/${USER}/.bashrc
-      echo "alias cpuhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head'" >> /home/${USER}/.bashrc
+      echo "alias cpuhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head && uptime'" >> /home/${USER}/.bashrc
       echo "alias memhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'" >> /home/${USER}/.bashrc
       echo "" >> /home/${USER}/.bashrc
       echo "###" >> /home/${USER}/.bashrc
