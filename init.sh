@@ -13,8 +13,8 @@ while getopts d option
   done
 
 if [ ! ${USER} ]; then
-      echo -e "Usage: init username [-d lxde]"
-      echo -e "       -d Set desktop environment to: LXDE"
+      echo -e "Usage: init username [-d]"
+      echo -e "       -d Sets desktop environment to: LXDE"
       exit 1;
   else
     # UPDATE + UPGRADE + INSTALLS
