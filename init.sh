@@ -3,9 +3,19 @@
 USER=$1
 TODAY=$(date +%Y%m%d)
 
-if [ $1 -eq 0 ]
-  then
-    echo "Usage: init username"
+while getopts d option
+  do
+    case "${option}"
+     in
+      d) DENV="lxde";;
+      #x) EXAMPLE=(${OPTARG});;
+    esac
+  done
+
+if [ ${USER} -eq 0 ]; then
+      echo -e "Usage: init username [-d lxde]"
+      echo -e "       -d Set desktop environment to: LXDE"
+      exit 1;
   else
     # UPDATE + UPGRADE + INSTALLS
       apt-get update && apt-get install -y dist-upgrade
@@ -45,4 +55,8 @@ if [ $1 -eq 0 ]
       echo "# Things to run at the end of .bashrc loading:" >> /home/${USER}/.bashrc
       echo "# Display logo at bash login:" >> /home/${USER}/.bashrc
       echo "#if [ -f /usr/bin/linux_logo ]; then linuxlogo -u -y; fi" >> /home/${USER}/.bashrc
+    if
+      mkdir /home/${USER}/Downloads/lxde && /home/${USER}/Downloads/lxde/openbox && \
+      wget -P /home/${USER}/Downloads/lxde/openbox https://dl.opendesktop.org/api/files/download/id/1460769323/69196-1977-openbox.obt
+    fi
 fi
