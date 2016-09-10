@@ -12,7 +12,7 @@ while getopts d option
     esac
   done
 
-if [ ${USER} -eq 0 ]; then
+if [ ! ${USER} ]; then
       echo -e "Usage: init username [-d lxde]"
       echo -e "       -d Set desktop environment to: LXDE"
       exit 1;
@@ -55,8 +55,9 @@ if [ ${USER} -eq 0 ]; then
       echo "# Things to run at the end of .bashrc loading:" >> /home/${USER}/.bashrc
       echo "# Display logo at bash login:" >> /home/${USER}/.bashrc
       echo "#if [ -f /usr/bin/linux_logo ]; then linuxlogo -u -y; fi" >> /home/${USER}/.bashrc
-    if
-      mkdir /home/${USER}/Downloads/lxde && /home/${USER}/Downloads/lxde/openbox && \
-      wget -P /home/${USER}/Downloads/lxde/openbox https://dl.opendesktop.org/api/files/download/id/1460769323/69196-1977-openbox.obt
+    if [ ${DENV} ]; then
+      mkdir /home/${USER}/Downloads/${DENV}
+      mkdir /home/${USER}/Downloads/${DENV}/openbox && wget -P /home/${USER}/Downloads/${DENV}/openbox https://dl.opendesktop.org/api/files/download/id/1460769323/69196-1977-openbox.obt
+      mkdir /home/${USER}/Downloads/${DENV}/icons && wget -P /home/${USER}/Downloads/${DENV}/icons https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/faenza-icon-theme/faenza-icon-theme_1.3.zip
     fi
 fi
