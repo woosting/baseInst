@@ -19,7 +19,7 @@ if [ ! ${USER} ]; then
   else
     # UPDATE + UPGRADE + INSTALLS
       apt-get update && apt-get install -y dist-upgrade
-      apt-get install -y vim colordiff screen
+      apt-get install -y vim screen git colordiff
       #apt-get install -y linuxlogo
     # USER ADDITION
       adduser --disabled-password --gecos "${USER}" ${USER}
