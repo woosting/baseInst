@@ -19,16 +19,16 @@ if [ ! ${NEWUSER} ]; then
       echo -e "       -d Sets desktop environment to: LXDE (OPTIONAL)"
       exit 1;
   else
-    # UPDATE + UPGRADE + INSTALLS
-#      apt-get update && apt-get -y dist-upgrade
+  # UPDATE + UPGRADE + INSTALLS
+      apt-get update && apt-get -y dist-upgrade
       apt-get install -y vim screen git colordiff
       #apt-get install -y linuxlogo
-    # USER ADDITION
+  # USER ADDITION
       adduser --disabled-password --gecos "${NEWUSER}" ${NEWUSER}
       usermod -aG sudo ${NEWUSER}
       mkdir /home/${NEWUSER}/.ssh/ && touch /home/${NEWUSER}/.ssh/authorized_keys
       chown ${NEWUSER}:${NEWUSER} -R /home/${NEWUSER}/.ssh && chmod 700 /home/${NEWUSER}/.ssh && chmod 600 /home/${NEWUSER}/.ssh/authorized_keys
-    # CUSTOM SCRIPTS
+  # CUSTOM SCRIPTS
       mkdir /home/${NEWUSER}/scripts
       git clone https://github.com/woosting/dirp.git /home/${NEWUSER}/scripts/dirp && \
         ln -s /home/${NEWUSER}/scripts/dirp/dirp.sh /usr/local/bin/dirp
@@ -36,7 +36,7 @@ if [ ! ${NEWUSER} ]; then
         ln -s /home/${NEWUSER}/scripts/stba/stba.sh /usr/local/bin/stba
       chown ${NEWUSER}:${NEWUSER} -R /home/${NEWUSER}/scripts
       chmod 755 /home/${NEWUSER}/scripts/*/*.sh
-    # UX
+  # UX
       cp /home/${NEWUSER}/.bashrc /home/${NEWUSER}/.bashrc.bak${TODAY}
       echo "" >> /home/${NEWUSER}/.bashrc
       echo "###" >> /home/${NEWUSER}/.bashrc
@@ -57,6 +57,7 @@ if [ ! ${NEWUSER} ]; then
       echo "# Things to run at the end of .bashrc loading:" >> /home/${NEWUSER}/.bashrc
       echo "# Display logo at bash login:" >> /home/${NEWUSER}/.bashrc
       echo "#if [ -f /usr/bin/linux_logo ]; then linuxlogo -u -y; fi" >> /home/${NEWUSER}/.bashrc
+  # DESKTOP TWEAKING
     if [ ${DENV} ]; then
       mkdir /home/${NEWUSER}/Downloads
       mkdir /home/${NEWUSER}/Downloads/${DENV}
