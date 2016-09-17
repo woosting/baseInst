@@ -1,20 +1,21 @@
 #!/bin/bash
 
-USER=$1
 TODAY=$(date +%Y%m%d)
 
-while getopts d option
+while getopts u:d option
   do
     case "${option}"
      in
+      u) USER="$1";;
       d) DENV="lxde";;
       #x) EXAMPLE=(${OPTARG});;
     esac
   done
 
 if [ ! ${USER} ]; then
-      echo -e "Usage: init username [-d]"
-      echo -e "       -d Sets desktop environment to: LXDE"
+      echo -e "Usage: init [-d] -u username"
+      echo -e "       -u Creates the user (REQUIRED)"
+      echo -e "       -d Sets desktop environment to: LXDE (OPTIONAL)"
       exit 1;
   else
     # UPDATE + UPGRADE + INSTALLS
