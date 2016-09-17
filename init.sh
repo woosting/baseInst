@@ -20,7 +20,7 @@ if [ ! ${NEWUSER} ]; then
       exit 1;
   else
     # UPDATE + UPGRADE + INSTALLS
-      apt-get update && apt-get -y dist-upgrade
+#      apt-get update && apt-get -y dist-upgrade
       apt-get install -y vim screen git colordiff
       #apt-get install -y linuxlogo
     # USER ADDITION
