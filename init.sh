@@ -58,6 +58,7 @@ if [ ! ${NEWUSER} ]; then
       echo "# Display logo at bash login:" >> /home/${NEWUSER}/.bashrc
       echo "#if [ -f /usr/bin/linux_logo ]; then linuxlogo -u -y; fi" >> /home/${NEWUSER}/.bashrc
     if [ ${DENV} ]; then
+      mkdir /home/${NEWUSER}/Downloads
       mkdir /home/${NEWUSER}/Downloads/${DENV}
       mkdir /home/${NEWUSER}/Downloads/${DENV}/openbox && wget -P /home/${NEWUSER}/Downloads/${DENV}/openbox https://dl.opendesktop.org/api/files/download/id/1460769323/69196-1977-openbox.obt
       mkdir /home/${NEWUSER}/Downloads/${DENV}/icons && wget -P /home/${NEWUSER}/Downloads/${DENV}/icons https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/faenza-icon-theme/faenza-icon-theme_1.3.zip
