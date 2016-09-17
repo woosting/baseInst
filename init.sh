@@ -6,7 +6,7 @@ while getopts u:d option
   do
     case "${option}"
      in
-      u) USER="$1";;
+      u) USER=(${OPTARG});;
       d) DENV="lxde";;
       #x) EXAMPLE=(${OPTARG});;
     esac
