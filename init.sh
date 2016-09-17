@@ -1,6 +1,7 @@
 #!/bin/bash
 
 TODAY=$(date +%Y%m%d)
+USER=""
 
 while getopts u:d option
   do
