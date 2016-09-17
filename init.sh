@@ -33,7 +33,7 @@ if [ ! ${USER} ]; then
       git clone https://github.com/woosting/stba.git /home/${USER}/scripts/stba && \
         ln -s /home/${USER}/scripts/stba/stba.sh /usr/local/bin/stba
       chown ${USER}:${USER} -R /home/${USER}/scripts
-      chmod 755 /home/${USER}/scripts/*.sh
+      chmod 755 /home/${USER}/scripts/*/*.sh
     # UX
       cp /home/${USER}/.bashrc /home/${USER}/.bashrc.bak${TODAY}
       echo "" >> /home/${USER}/.bashrc
