@@ -21,7 +21,7 @@ if [ ! ${NEWUSER} ]; then
   else
   # UPDATE + UPGRADE + INSTALLS
       apt-get update && apt-get -y dist-upgrade
-      apt-get install -y vim screen git colordiff
+      apt-get install -y vim screen git colordiff fail2ban
       #apt-get install -y linuxlogo
   # USER ADDITION
       adduser --disabled-password --gecos "${NEWUSER}" ${NEWUSER}
