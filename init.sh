@@ -71,7 +71,9 @@
     chmod 755 /home/${NEWUSER}/scripts/*/*.sh
   # USER CONFIG
     # VIM
-      wget -P /home/${NEWUSER}/ https://raw.githubusercontent.com/woosting/baseInst/master/configs/.vimrc && chown ${NEWUSER}:${NEWUSER} /home/${NEWUSER}/.vimrc
+      touch /home/${NEWUSER}/.vimrc && chown ${NEWUSER}:${NEWUSER} /home/${NEWUSER}/.vimrc
+      echo "syntax on" >> /home/${NEWUSER}/.vimrc
+      echo ":set tabstop=2 shiftwidth=2 expandtab" >> /home/${NEWUSER}/.vimrc
     # BASH
       cp /home/${NEWUSER}/.bashrc /home/${NEWUSER}/.bashrc.bak${TODAY}
       echo "" >> /home/${NEWUSER}/.bashrc
