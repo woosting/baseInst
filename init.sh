@@ -22,22 +22,31 @@
 # INITIALISATION
   TODAY=$(date +%Y%m%d)
   NEWUSER=""
-  while getopts u:d option
+  while getopts u:dh option
     do
       case "${option}"
        in
         u) NEWUSER=(${OPTARG});;
         d) DENV="lxde";;
+        h) 
+          printHelp
+          exit 0
         #x) EXAMPLE=(${OPTARG});;
       esac
     done
-    
-    
-# LOGIC
-  if [ ! ${NEWUSER} ]; then
+ 
+ 
+ # FUNCTION DEFINITION
+
+  function printHelp () {
     echo -e "Usage: init [-d] -u username"
     echo -e "       -u Creates the user (REQUIRED)"
     echo -e "       -d Sets desktop environment to: LXDE (OPTIONAL)"
+}    
+    
+# LOGIC
+  if [ ! ${NEWUSER} ]; then
+    printHelp
     exit 1;
   else
   # UPDATE + UPGRADE + INSTALLS
