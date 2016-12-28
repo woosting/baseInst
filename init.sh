@@ -20,10 +20,8 @@
 # FORK ME AT GITHUB: https://github.com/woosting/baseInst
 
 # INITIALISATION
-
   TODAY=$(date +%Y%m%d)
   NEWUSER=""
-
   while getopts u:d option
     do
       case "${option}"
@@ -33,31 +31,33 @@
         #x) EXAMPLE=(${OPTARG});;
       esac
     done
-
-if [ ! ${NEWUSER} ]; then
-      echo -e "Usage: init [-d] -u username"
-      echo -e "       -u Creates the user (REQUIRED)"
-      echo -e "       -d Sets desktop environment to: LXDE (OPTIONAL)"
-      exit 1;
+    
+    
+# LOGIC
+  if [ ! ${NEWUSER} ]; then
+    echo -e "Usage: init [-d] -u username"
+    echo -e "       -u Creates the user (REQUIRED)"
+    echo -e "       -d Sets desktop environment to: LXDE (OPTIONAL)"
+    exit 1;
   else
   # UPDATE + UPGRADE + INSTALLS
-      apt-get update && apt-get -y dist-upgrade
-      apt-get install -y ssh vim screen wget git fail2ban colordiff
-      #apt-get install -y linuxlogo
+    apt-get update && apt-get -y dist-upgrade
+    apt-get install -y ssh vim screen wget git fail2ban colordiff
+    #apt-get install -y linuxlogo
   # USER ADDITION
-      adduser --disabled-password --gecos "${NEWUSER}" ${NEWUSER}
-      usermod -aG sudo ${NEWUSER}
-      mkdir /home/${NEWUSER}/.ssh/ && touch /home/${NEWUSER}/.ssh/authorized_keys
-      chown ${NEWUSER}:${NEWUSER} -R /home/${NEWUSER}/.ssh && chmod 700 /home/${NEWUSER}/.ssh && chmod 600 /home/${NEWUSER}/.ssh/authorized_keys
+    adduser --disabled-password --gecos "${NEWUSER}" ${NEWUSER}
+    usermod -aG sudo ${NEWUSER}
+    mkdir /home/${NEWUSER}/.ssh/ && touch /home/${NEWUSER}/.ssh/authorized_keys
+    chown ${NEWUSER}:${NEWUSER} -R /home/${NEWUSER}/.ssh && chmod 700 /home/${NEWUSER}/.ssh && chmod 600 /home/${NEWUSER}/.ssh/authorized_keys
+  # CUSTOM SCRIPT DOWNLOADS
+    mkdir /home/${NEWUSER}/scripts
+    git clone https://github.com/woosting/dirp.git /home/${NEWUSER}/scripts/dirp && \
+      ln -s /home/${NEWUSER}/scripts/dirp/dirp.sh /usr/local/bin/dirp
+    git clone https://github.com/woosting/stba.git /home/${NEWUSER}/scripts/stba && \
+      ln -s /home/${NEWUSER}/scripts/stba/stba.sh /usr/local/bin/stba
+    chown ${NEWUSER}:${NEWUSER} -R /home/${NEWUSER}/scripts
+    chmod 755 /home/${NEWUSER}/scripts/*/*.sh
   # USER CONFIG
-    # CUSTOM SCRIPTS
-      mkdir /home/${NEWUSER}/scripts
-      git clone https://github.com/woosting/dirp.git /home/${NEWUSER}/scripts/dirp && \
-        ln -s /home/${NEWUSER}/scripts/dirp/dirp.sh /usr/local/bin/dirp
-      git clone https://github.com/woosting/stba.git /home/${NEWUSER}/scripts/stba && \
-        ln -s /home/${NEWUSER}/scripts/stba/stba.sh /usr/local/bin/stba
-      chown ${NEWUSER}:${NEWUSER} -R /home/${NEWUSER}/scripts
-      chmod 755 /home/${NEWUSER}/scripts/*/*.sh
     # VIM
       cp .vimrc /home/${NEWUSER}/ && chown ${NEWUSER}:${NEWUSER} /home/${NEWUSER}/.vimrc
     # BASH
