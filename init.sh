@@ -71,7 +71,7 @@
     chmod 755 /home/${NEWUSER}/scripts/*/*.sh
   # USER CONFIG
     # VIM
-      cp .vimrc /home/${NEWUSER}/ && chown ${NEWUSER}:${NEWUSER} /home/${NEWUSER}/.vimrc
+      wget -P /home/${NEWUSER}/ https://raw.githubusercontent.com/woosting/baseInst/master/configs/.vimrc && chown ${NEWUSER}:${NEWUSER} /home/${NEWUSER}/.vimrc
     # BASH
       cp /home/${NEWUSER}/.bashrc /home/${NEWUSER}/.bashrc.bak${TODAY}
       echo "" >> /home/${NEWUSER}/.bashrc
