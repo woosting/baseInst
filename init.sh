@@ -19,18 +19,20 @@
 #
 # FORK ME AT GITHUB: https://github.com/woosting/baseInst
 
-TODAY=$(date +%Y%m%d)
-NEWUSER=""
+# INITIALISATION
 
-while getopts u:d option
-  do
-    case "${option}"
-     in
-      u) NEWUSER=(${OPTARG});;
-      d) DENV="lxde";;
-      #x) EXAMPLE=(${OPTARG});;
-    esac
-  done
+  TODAY=$(date +%Y%m%d)
+  NEWUSER=""
+
+  while getopts u:d option
+    do
+      case "${option}"
+       in
+        u) NEWUSER=(${OPTARG});;
+        d) DENV="lxde";;
+        #x) EXAMPLE=(${OPTARG});;
+      esac
+    done
 
 if [ ! ${NEWUSER} ]; then
       echo -e "Usage: init [-d] -u username"
