@@ -74,7 +74,7 @@
       wget -P /home/${NEWUSER}/ https://raw.githubusercontent.com/woosting/baseInst/master/configs/.vimrc && \
       chown ${NEWUSER}:${NEWUSER} /home/${NEWUSER}/.vimrc
     # BASH
-      cp /home/${NEWUSER}/.bashrc /home/${NEWUSER}/.bashrc.bak${TODAY}
+      cp /home/${NEWUSER}/.bashrc /home/${NEWUSER}/.bashrc.bak${TODAY} && chown ${NEWUSER}:${NEWUSER} /home/${NEWUSER}/.bashrc.bak${TODAY}
       echo "" >> /home/${NEWUSER}/.bashrc
       echo "###" >> /home/${NEWUSER}/.bashrc
       echo "# INIT.SH ADDITIONS" >> /home/${NEWUSER}/.bashrc
