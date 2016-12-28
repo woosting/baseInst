@@ -36,14 +36,15 @@
     done
  
  
- # FUNCTION DEFINITION
+# FUNCTION DEFINITION
 
   function printHelp () {
     echo -e "Usage: init [-d] -u username"
     echo -e "       -u Creates the user (REQUIRED)"
     echo -e "       -d Sets desktop environment to: LXDE (OPTIONAL)"
 }    
-    
+
+
 # LOGIC
   if [ ! ${NEWUSER} ]; then
     printHelp
