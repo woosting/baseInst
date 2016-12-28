@@ -19,7 +19,9 @@
 #
 # FORK ME AT GITHUB: https://github.com/woosting/baseInst
 
+
 # INITIALISATION
+
   TODAY=$(date +%Y%m%d)
   NEWUSER=""
   while getopts u:dh option
