@@ -28,7 +28,8 @@ if [ ! ${NEWUSER} ]; then
       usermod -aG sudo ${NEWUSER}
       mkdir /home/${NEWUSER}/.ssh/ && touch /home/${NEWUSER}/.ssh/authorized_keys
       chown ${NEWUSER}:${NEWUSER} -R /home/${NEWUSER}/.ssh && chmod 700 /home/${NEWUSER}/.ssh && chmod 600 /home/${NEWUSER}/.ssh/authorized_keys
-  # CUSTOM SCRIPTS
+  # USER CONFIG
+    # CUSTOM SCRIPTS
       mkdir /home/${NEWUSER}/scripts
       git clone https://github.com/woosting/dirp.git /home/${NEWUSER}/scripts/dirp && \
         ln -s /home/${NEWUSER}/scripts/dirp/dirp.sh /usr/local/bin/dirp
@@ -36,7 +37,9 @@ if [ ! ${NEWUSER} ]; then
         ln -s /home/${NEWUSER}/scripts/stba/stba.sh /usr/local/bin/stba
       chown ${NEWUSER}:${NEWUSER} -R /home/${NEWUSER}/scripts
       chmod 755 /home/${NEWUSER}/scripts/*/*.sh
-  # UX
+    # VIM
+      cp .vimrc /home/${NEWUSER}/ && chown ${NEWUSER}:${NEWUSER} /home/${NEWUSER}/.vimrc
+    # BASH
       cp /home/${NEWUSER}/.bashrc /home/${NEWUSER}/.bashrc.bak${TODAY}
       echo "" >> /home/${NEWUSER}/.bashrc
       echo "###" >> /home/${NEWUSER}/.bashrc
