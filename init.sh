@@ -41,7 +41,9 @@
 # FUNCTION DEFINITION
 
   function printHelp () {
-    echo -e "Usage: init [-d] -u username"
+    echo -e "BASEINST - Base installation (2016, GNU GENERAL PUBLIC LICENSE)\n"
+    echo -e "USAGE: init [-d] -u username\n"
+    echo -e "Arguments:\n"
     echo -e "       -u Creates the user (REQUIRED)"
     echo -e "       -d Sets desktop environment to: LXDE (OPTIONAL)"
 }    
