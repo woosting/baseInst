@@ -57,7 +57,7 @@
   # UPDATE + UPGRADE + INSTALLS
     apt-get update && apt-get -y dist-upgrade
     apt-get install -y ssh vim screen wget git fail2ban colordiff
-    #apt-get install -y linuxlogo
+    #apt-get install -y linuxlogo cmatrix
   # USER ADDITION
     adduser --disabled-password --gecos "${NEWUSER}" ${NEWUSER}
     usermod -aG sudo ${NEWUSER}
