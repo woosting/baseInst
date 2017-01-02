@@ -81,7 +81,7 @@
       echo "###" >> /home/${NEWUSER}/.bashrc
       echo "# INIT.SH ADDITIONS" >> /home/${NEWUSER}/.bashrc
       echo "# Things automatically added by the init.sh script:" >> /home/${NEWUSER}/.bashrc
-      echo "# Grouping directories first:" >> /home/${NEWUSER}/.bashrc
+      echo "export EDITOR=vim" >> /home/${NEWUSER}/.bashrc
       echo "alias ls='ls --color=auto --group-directories-first'" >> /home/${NEWUSER}/.bashrc
       echo "alias grep='grep --color=auto'" >> /home/${NEWUSER}/.bashrc
       echo "alias fgrep='fgrep --color=auto'" >> /home/${NEWUSER}/.bashrc
