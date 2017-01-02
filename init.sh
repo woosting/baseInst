@@ -83,6 +83,9 @@
       echo "# Things automatically added by the init.sh script:" >> /home/${NEWUSER}/.bashrc
       echo "# Grouping directories first:" >> /home/${NEWUSER}/.bashrc
       echo "alias ls='ls --color=auto --group-directories-first'" >> /home/${NEWUSER}/.bashrc
+      echo "alias grep='grep --color=auto'" >> /home/${NEWUSER}/.bashrc
+      echo "alias fgrep='fgrep --color=auto'" >> /home/${NEWUSER}/.bashrc
+      echo "alias egrep='egrep --color=auto'" >> /home/${NEWUSER}/.bashrc
       echo "alias weather='wget -qO- wttr.in'" >> /home/${NEWUSER}/.bashrc
       echo "alias cpuhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head && uptime'" >> /home/${NEWUSER}/.bashrc
       echo "alias memhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'" >> /home/${NEWUSER}/.bashrc
