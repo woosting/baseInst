@@ -56,7 +56,7 @@
   else
   # UPDATE + UPGRADE + INSTALLS
     apt-get update && apt-get -y dist-upgrade
-    apt-get install -y ssh vim screen wget git fail2ban colordiff
+    apt-get install -y ssh vim screen wget git bash-completion fail2ban colordiff
     #apt-get install -y linuxlogo cmatrix sl mplayer
   # USER ADDITION
     adduser --disabled-password --gecos "${NEWUSER}" ${NEWUSER}
@@ -80,15 +80,26 @@
       echo "" >> /home/${NEWUSER}/.bashrc
       echo "###" >> /home/${NEWUSER}/.bashrc
       echo "# INIT.SH ADDITIONS" >> /home/${NEWUSER}/.bashrc
-      echo "# Things automatically added by the init.sh script:" >> /home/${NEWUSER}/.bashrc
-      echo "export EDITOR=vim" >> /home/${NEWUSER}/.bashrc
-      echo "alias ls='ls --color=auto --group-directories-first'" >> /home/${NEWUSER}/.bashrc
-      echo "alias grep='grep --color=auto'" >> /home/${NEWUSER}/.bashrc
-      echo "alias fgrep='fgrep --color=auto'" >> /home/${NEWUSER}/.bashrc
-      echo "alias egrep='egrep --color=auto'" >> /home/${NEWUSER}/.bashrc
-      echo "alias weather='wget -qO- wttr.in'" >> /home/${NEWUSER}/.bashrc
-      echo "alias cpuhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head && uptime'" >> /home/${NEWUSER}/.bashrc
-      echo "alias memhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'" >> /home/${NEWUSER}/.bashrc
+      echo "# Things automatically added by woosting's init.sh script:" >> /home/${NEWUSER}/.bashrc
+      echo "#" >> /home/${NEWUSER}/.bashrc
+      
+      echo "# GIT/Bash completion" >> /home/${NEWUSER}/.bashrc
+      echo "  if [ -f /etc/bash_completion ]; then" >> /home/${NEWUSER}/.bashrc
+      echo "    . /etc/bash_completion" >> /home/${NEWUSER}/.bashrc
+      echo "  fi" >> /home/${NEWUSER}/.bashrc
+      sed -i '/\\w\\\[\\033\[00m\\\]\\\$/i \ \ \ \ export GIT_PS1_SHOWDIRTYSTATE=1' /home/${NEWUSER}/.bashrc
+      sed -i 's/\\w\\\[\\033\[00m\\\]\\\$/\\w\\[\\033[36m\\]$(__git_ps1)\\033[00m\\] \\$/g' /home/${NEWUSER}/.bashrc
+
+      echo "# Aliasses" >> /home/${NEWUSER}/.bashrc
+      echo "  alias ls='ls --color=auto --group-directories-first'" >> /home/${NEWUSER}/.bashrc
+      echo "  alias grep='grep --color=auto'" >> /home/${NEWUSER}/.bashrc
+      echo "  alias fgrep='fgrep --color=auto'" >> /home/${NEWUSER}/.bashrc
+      echo "  alias egrep='egrep --color=auto'" >> /home/${NEWUSER}/.bashrc
+      echo "  alias weather='wget -qO- wttr.in'" >> /home/${NEWUSER}/.bashrc
+      echo "  alias cpuhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head && uptime'" >> /home/${NEWUSER}/.bashrc
+      echo "  alias memhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'" >> /home/${NEWUSER}/.bashrc
+      echo "# Others" >> /home/${NEWUSER}/.bashrc
+      echo "  export EDITOR=vim" >> /home/${NEWUSER}/.bashrc
       echo "" >> /home/${NEWUSER}/.bashrc
       echo "###" >> /home/${NEWUSER}/.bashrc
       echo "# MANUAL ADDITIONS" >> /home/${NEWUSER}/.bashrc
