@@ -86,7 +86,7 @@
       # Git prompt
         apt-get install -y bash-completion && \
         sed -i '/\\w\\\[\\033\[00m\\\]\\\$/i \ \ \ \ export GIT_PS1_SHOWDIRTYSTATE=1' /home/${NEWUSER}/.bashrc && \
-        sed -i 's/\\w\\\[\\033\[00m\\\]\\\$/\\w\\[\\033[36m\\]$(__git_ps1)\\033[00m\\] \\$/g' /home/${NEWUSER}/.bashrc && \
+        sed -i 's/\\w\\\[\\033\[00m\\\]\\\$/\\w\\[\\033[36m\\]$(__git_ps1)\\033[00m\\]\\$/g' /home/${NEWUSER}/.bashrc && \
         echo "# GIT/Bash completion" >> /home/${NEWUSER}/.bashrc && \
         echo "  if [ -f /etc/bash_completion ]; then" >> /home/${NEWUSER}/.bashrc && \
         echo "    . /etc/bash_completion" >> /home/${NEWUSER}/.bashrc && \
