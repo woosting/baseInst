@@ -98,8 +98,10 @@
       echo "  alias weather='wget -qO- wttr.in'" >> /home/${NEWUSER}/.bashrc
       echo "  alias cpuhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head && uptime'" >> /home/${NEWUSER}/.bashrc
       echo "  alias memhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'" >> /home/${NEWUSER}/.bashrc
+      
       echo "# Others" >> /home/${NEWUSER}/.bashrc
       echo "  export EDITOR=vim" >> /home/${NEWUSER}/.bashrc
+      
       echo "" >> /home/${NEWUSER}/.bashrc
       echo "###" >> /home/${NEWUSER}/.bashrc
       echo "# MANUAL ADDITIONS" >> /home/${NEWUSER}/.bashrc
