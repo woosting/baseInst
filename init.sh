@@ -102,10 +102,10 @@
       echo "  alias memhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'" >> /home/${NEWUSER}/.bashrc
  
        echo "# Starting ssh-agent" >> /home/${NEWUSER}/.bashrc
-      echo "  if [ -z \"$SSH_AUTH_SOCK\" ] ; then" >> /home/${NEWUSER}/.bashrc
-      echo "    eval `ssh-agent -s`" >> /home/${NEWUSER}/.bashrc
-#      echo "   ssh-add" >> /home/${NEWUSER}/.bashrc
-      echo "  fi" >> /home/${NEWUSER}/.bashrc
+      echo '  if [ -z "$SSH_AUTH_SOCK" ] ; then' >> /home/${NEWUSER}/.bashrc
+      echo '    eval `ssh-agent -s`' >> /home/${NEWUSER}/.bashrc
+#      echo '   ssh-add' >> /home/${NEWUSER}/.bashrc
+      echo '  fi' >> /home/${NEWUSER}/.bashrc
  
       echo "# Others" >> /home/${NEWUSER}/.bashrc
       echo "  export EDITOR=vim" >> /home/${NEWUSER}/.bashrc
