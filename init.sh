@@ -100,10 +100,16 @@
       echo "  alias weather='wget -qO- wttr.in'" >> /home/${NEWUSER}/.bashrc
       echo "  alias cpuhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head && uptime'" >> /home/${NEWUSER}/.bashrc
       echo "  alias memhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'" >> /home/${NEWUSER}/.bashrc
-      
+ 
+       echo "# Starting ssh-agent" >> /home/${NEWUSER}/.bashrc
+      echo "  if [ -z \"$SSH_AUTH_SOCK\" ] ; then" >> /home/${NEWUSER}/.bashrc
+      echo "    eval `ssh-agent -s`" >> /home/${NEWUSER}/.bashrc
+#      echo "   ssh-add" >> /home/${NEWUSER}/.bashrc
+      echo "  fi" >> /home/${NEWUSER}/.bashrc
+ 
       echo "# Others" >> /home/${NEWUSER}/.bashrc
       echo "  export EDITOR=vim" >> /home/${NEWUSER}/.bashrc
-      
+
       echo "" >> /home/${NEWUSER}/.bashrc
       echo "###" >> /home/${NEWUSER}/.bashrc
       echo "# MANUAL ADDITIONS" >> /home/${NEWUSER}/.bashrc
@@ -114,6 +120,7 @@
       echo "# Things to run at the end of .bashrc loading:" >> /home/${NEWUSER}/.bashrc
       echo "# Display logo at bash login:" >> /home/${NEWUSER}/.bashrc
       echo "#if [ -f /usr/bin/linux_logo ]; then linuxlogo -u -y; fi" >> /home/${NEWUSER}/.bashrc
+
   # DESKTOP TWEAKING
     if [ ${DENV} ]; then
       mkdir /home/${NEWUSER}/Downloads && \
