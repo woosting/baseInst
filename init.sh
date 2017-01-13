@@ -82,6 +82,9 @@
       echo "# INIT.SH ADDITIONS" >> /home/${NEWUSER}/.bashrc
       echo "# Things automatically added by woosting's init.sh script:" >> /home/${NEWUSER}/.bashrc
       echo "#" >> /home/${NEWUSER}/.bashrc
+      
+      # Color promot
+        sed -i.bak 's/#force_color_prompt=yes/force_color_prompt=yes/g' /home/${NEWUSER}/.bashrc
     
       # Git prompt
         apt-get install -y bash-completion && \
@@ -101,7 +104,7 @@
       echo "  alias cpuhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head && uptime'" >> /home/${NEWUSER}/.bashrc
       echo "  alias memhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'" >> /home/${NEWUSER}/.bashrc
  
-       echo "# Starting ssh-agent" >> /home/${NEWUSER}/.bashrc
+      echo "# Starting ssh-agent" >> /home/${NEWUSER}/.bashrc
       echo '  if [ -z "$SSH_AUTH_SOCK" ] ; then' >> /home/${NEWUSER}/.bashrc
       echo '    eval `ssh-agent -s`' >> /home/${NEWUSER}/.bashrc
       echo '   ssh-add' >> /home/${NEWUSER}/.bashrc
