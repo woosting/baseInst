@@ -126,9 +126,13 @@
 
   # DESKTOP TWEAKING
     if [ ${DENV} ]; then
-      mkdir /home/${NEWUSER}/Downloads && \
-      mkdir /home/${NEWUSER}/Downloads/${DENV} && \
-      mkdir /home/${NEWUSER}/Downloads/${DENV}/openbox && wget -P /home/${NEWUSER}/Downloads/${DENV}/openbox https://dl.opendesktop.org/api/files/download/id/1460769323/69196-1977-openbox.obt
-      mkdir /home/${NEWUSER}/Downloads/${DENV}/icons && wget -P /home/${NEWUSER}/Downloads/${DENV}/icons https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/faenza-icon-theme/faenza-icon-theme_1.3.zip
+      # UPDATE + UPGRADE + INSTALLS
+        apt-get update && apt-get -y dist-upgrade
+        apt-get install -y tightvncserver
+      # DOWNLOAD THEMING CONTENT
+        mkdir /home/${NEWUSER}/Downloads && \
+        mkdir /home/${NEWUSER}/Downloads/${DENV} && \
+        mkdir /home/${NEWUSER}/Downloads/${DENV}/openbox && wget -P /home/${NEWUSER}/Downloads/${DENV}/openbox https://dl.opendesktop.org/api/files/download/id/1460769323/69196-1977-openbox.obt
+        mkdir /home/${NEWUSER}/Downloads/${DENV}/icons && wget -P /home/${NEWUSER}/Downloads/${DENV}/icons https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/faenza-icon-theme/faenza-icon-theme_1.3.zip
     fi
 fi
