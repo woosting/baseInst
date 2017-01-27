@@ -129,6 +129,15 @@
       # UPDATE + UPGRADE + INSTALLS
         apt-get update && apt-get -y dist-upgrade
         apt-get install -y tightvncserver
+        
+        # ADDING REPO AND INSTALLING QOWNNOTES
+          # Trust the repo:
+          wget http://download.opensuse.org/repositories/home:/pbek:/QOwnNotes/Debian_8.0/Release.key -O - | sudo apt-key add -
+          # Add it to apt sources.list:
+          sudo bash -c "echo 'deb http://download.opensuse.org/repositories/home:/pbek:/QOwnNotes/Debian_8.0/ /' >> /etc/apt/sources.list.d/qownnotes.list"
+          # Update apt-cache and install QOwnNotes:
+          sudo apt-get update && sudo apt-get install qownnotes
+
       # DOWNLOAD THEMING CONTENT
         mkdir /home/${NEWUSER}/Downloads && \
         mkdir /home/${NEWUSER}/Downloads/${DENV} && \
