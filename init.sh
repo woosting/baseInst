@@ -56,7 +56,7 @@
   else
   # UPDATE + UPGRADE + INSTALLS
     apt-get update && apt-get -y dist-upgrade
-    apt-get install -y ssh vim screen wget git rsyslog fail2ban colordiff
+    apt-get install -y ssh vim screen wget git rsyslog fail2ban cifs-utils colordiff
     #apt-get install -y linuxlogo cmatrix sl mplayer
   # USER ADDITION
     adduser --disabled-password --gecos "${NEWUSER}" ${NEWUSER}
@@ -89,7 +89,7 @@
       # Git prompt
         apt-get install -y bash-completion && \
         sed -i '/\\w\\\[\\033\[00m\\\]\\\$/i \ \ \ \ export GIT_PS1_SHOWDIRTYSTATE=1' /home/${NEWUSER}/.bashrc && \
-        sed -i 's/\\w\\\[\\033\[00m\\\]\\\$/\\w\\[\\033[36m\\]$(__git_ps1)\\033[00m\\]\\$/g' /home/${NEWUSER}/.bashrc && \
+        sed -i 's/\\w\\\[\\033\[00m\\\]\\\$/\\w\\[\\033[36m\\]$(__git_ps1)\\[\\033[00m\\]\\$/g' /home/${NEWUSER}/.bashrc && \
         echo "# GIT/Bash completion" >> /home/${NEWUSER}/.bashrc && \
         echo "  if [ -f /etc/bash_completion ]; then" >> /home/${NEWUSER}/.bashrc && \
         echo "    . /etc/bash_completion" >> /home/${NEWUSER}/.bashrc && \
@@ -126,9 +126,13 @@
 
   # DESKTOP TWEAKING
     if [ ${DENV} ]; then
-      mkdir /home/${NEWUSER}/Downloads && \
-      mkdir /home/${NEWUSER}/Downloads/${DENV} && \
-      mkdir /home/${NEWUSER}/Downloads/${DENV}/openbox && wget -P /home/${NEWUSER}/Downloads/${DENV}/openbox https://dl.opendesktop.org/api/files/download/id/1460769323/69196-1977-openbox.obt
-      mkdir /home/${NEWUSER}/Downloads/${DENV}/icons && wget -P /home/${NEWUSER}/Downloads/${DENV}/icons https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/faenza-icon-theme/faenza-icon-theme_1.3.zip
+      # UPDATE + UPGRADE + INSTALLS
+        apt-get update && apt-get -y dist-upgrade
+        apt-get install -y tightvncserver
+      # DOWNLOAD THEMING CONTENT
+        mkdir /home/${NEWUSER}/Downloads && \
+        mkdir /home/${NEWUSER}/Downloads/${DENV} && \
+        mkdir /home/${NEWUSER}/Downloads/${DENV}/openbox && wget -P /home/${NEWUSER}/Downloads/${DENV}/openbox https://dl.opendesktop.org/api/files/download/id/1460769323/69196-1977-openbox.obt
+        mkdir /home/${NEWUSER}/Downloads/${DENV}/icons && wget -P /home/${NEWUSER}/Downloads/${DENV}/icons https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/faenza-icon-theme/faenza-icon-theme_1.3.zip
     fi
 fi
