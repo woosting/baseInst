@@ -89,7 +89,7 @@
       # Git prompt
         apt-get install -y bash-completion && \
         sed -i '/\\w\\\[\\033\[00m\\\]\\\$/i \ \ \ \ export GIT_PS1_SHOWDIRTYSTATE=1' /home/${NEWUSER}/.bashrc && \
-        sed -i 's/\\w\\\[\\033\[00m\\\]\\\$/\\w\\[\\033[36m\\]$(__git_ps1)\\033[00m\\]\\$/g' /home/${NEWUSER}/.bashrc && \
+        sed -i 's/\\w\\\[\\033\[00m\\\]\\\$/\\w\\[\\033[36m\\]$(__git_ps1)\\[\\033[00m\\]\\$/g' /home/${NEWUSER}/.bashrc && \
         echo "# GIT/Bash completion" >> /home/${NEWUSER}/.bashrc && \
         echo "  if [ -f /etc/bash_completion ]; then" >> /home/${NEWUSER}/.bashrc && \
         echo "    . /etc/bash_completion" >> /home/${NEWUSER}/.bashrc && \
@@ -126,9 +126,22 @@
 
   # DESKTOP TWEAKING
     if [ ${DENV} ]; then
-      mkdir /home/${NEWUSER}/Downloads && \
-      mkdir /home/${NEWUSER}/Downloads/${DENV} && \
-      mkdir /home/${NEWUSER}/Downloads/${DENV}/openbox && wget -P /home/${NEWUSER}/Downloads/${DENV}/openbox https://dl.opendesktop.org/api/files/download/id/1460769323/69196-1977-openbox.obt
-      mkdir /home/${NEWUSER}/Downloads/${DENV}/icons && wget -P /home/${NEWUSER}/Downloads/${DENV}/icons https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/faenza-icon-theme/faenza-icon-theme_1.3.zip
+      # UPDATE + UPGRADE + INSTALLS
+        apt-get update && apt-get -y dist-upgrade
+        apt-get install -y tightvncserver
+        
+        # ADDING REPO AND INSTALLING QOWNNOTES
+          # Trust the repo:
+          wget http://download.opensuse.org/repositories/home:/pbek:/QOwnNotes/Debian_8.0/Release.key -O - | sudo apt-key add -
+          # Add it to apt sources.list:
+          sudo bash -c "echo 'deb http://download.opensuse.org/repositories/home:/pbek:/QOwnNotes/Debian_8.0/ /' >> /etc/apt/sources.list.d/qownnotes.list"
+          # Update apt-cache and install QOwnNotes:
+          sudo apt-get update && sudo apt-get install qownnotes
+
+      # DOWNLOAD THEMING CONTENT
+        mkdir /home/${NEWUSER}/Downloads && \
+        mkdir /home/${NEWUSER}/Downloads/${DENV} && \
+        mkdir /home/${NEWUSER}/Downloads/${DENV}/openbox && wget -P /home/${NEWUSER}/Downloads/${DENV}/openbox https://dl.opendesktop.org/api/files/download/id/1460769323/69196-1977-openbox.obt
+        mkdir /home/${NEWUSER}/Downloads/${DENV}/icons && wget -P /home/${NEWUSER}/Downloads/${DENV}/icons https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/faenza-icon-theme/faenza-icon-theme_1.3.zip
     fi
 fi
