@@ -5,4 +5,5 @@
 - Wire
 - Telegram
 - Barcode scanner
+- Keepass2Android
 
