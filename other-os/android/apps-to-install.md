@@ -1,9 +1,9 @@
-- g-apps (Google apps)
-- Feedly
-- Google+
-- Syncthing
-- Wire
-- Telegram
-- Barcode scanner
-- Keepass2Android
-
+- Misc.:        gapps (Google apps)
+- News RSS:     Feedly
+- Social media: Google+
+- Sync:         Syncthing
+- Chat:         Wire / Telegram
+- Barcode scan: Barcode scanner
+- Password mgr: Keepass2Android
+- Nuts energy:  Mijn Nuon
+- Bank:         Mijn ING
