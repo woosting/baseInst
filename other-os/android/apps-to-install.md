@@ -1,10 +1,11 @@
-- Misc.:        gapps (Google apps)
-- News RSS:     Feedly
-- Social media: Google+
-- Webrowser:    Firefox
-- Sync:         Syncthing
-- Chat:         Wire / Telegram
-- Password mgr: Keepass2Android
-- Nuts energy:  Mijn Nuon
-- Bank:         Mijn ING
-- Barcode scan: Barcode scanner
+- Google:        gapps (Google apps)
+- News RSS:      Feedly
+- Social media:  Google+
+- Webbrowser:    Firefox
+- Sync:          Syncthing
+- Chat:          Wire / Telegram
+- Password mgr:  Keepass2Android
+- Nuts energy:   Mijn Nuon
+- Bank:          Mijn ING
+- Barcode scan:  Barcode scanner
+- Text transfer: Pushbullet
