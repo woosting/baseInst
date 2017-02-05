@@ -1,4 +1,10 @@
 - Google:        gapps (Google apps)
+- Barcode scan:  Barcode scanner
+- 2Factor:
+  - General:     Authy 2-Factor Authentication
+  - Blizzard:    Battlenet Authenticator
+  - Last Pass:   LastPass Authenticator
+  - Microsoft:   Microsoft Authenticator
 - News RSS:      Feedly
 - Social media:  Google+
 - Webbrowser:    Firefox
@@ -7,5 +13,4 @@
 - Password mgr:  Keepass2Android
 - Nuts energy:   Mijn Nuon
 - Bank:          Mijn ING
-- Barcode scan:  Barcode scanner
 - Text transfer: Pushbullet
