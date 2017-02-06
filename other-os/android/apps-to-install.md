@@ -17,3 +17,6 @@
 - Bank:          Mijn ING
 - Text transfer: Pushbullet
 - Smartwatch:    Pebble
+- Retail:
+  - Cheap        Lidl
+  - Normal       Aldi
