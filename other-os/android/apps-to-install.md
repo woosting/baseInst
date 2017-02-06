@@ -9,8 +9,11 @@
 - Social media:  Google+
 - Webbrowser:    Firefox
 - Sync:          Syncthing
-- Chat:          Wire / Telegram
+- Chat:
+  - Secure:      Wire
+  - Normal:      Telegram
 - Password mgr:  Keepass2Android
 - Nuts energy:   Mijn Nuon
 - Bank:          Mijn ING
 - Text transfer: Pushbullet
+- Smartwatch:    Pebble
