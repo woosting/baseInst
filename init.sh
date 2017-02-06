@@ -126,11 +126,11 @@
 
   # DESKTOP TWEAKING
     if [ ${DENV} ]; then
-      # UPDATE + UPGRADE + INSTALLS
-        apt-get update && apt-get -y dist-upgrade
+      # GENERAL INSTALLS 
         apt-get install -y tightvncserver
 
         # INSTALL ATOM
+        apt-get install -y gvfs-bin && \
         wget -P /tmp/ "https://atom.io/download/deb" && \
         dpkg -i /tmp/deb
 
