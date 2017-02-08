@@ -30,14 +30,14 @@
        in
         u) NEWUSER=(${OPTARG});;
         d) DENV="lxde";;
-        h) 
+        h)
           printHelp
           exit 0
         #x) EXAMPLE=(${OPTARG});;
       esac
     done
- 
- 
+
+
 # FUNCTION DEFINITION
 
   function printHelp () {
@@ -46,7 +46,7 @@
     echo -e "Arguments:\n"
     echo -e "       -u Creates the user (REQUIRED)"
     echo -e "       -d Sets desktop environment to: LXDE (OPTIONAL)"
-}    
+}
 
 
 # LOGIC
@@ -56,7 +56,7 @@
   else
   # UPDATE + UPGRADE + INSTALLS
     apt-get update && apt-get -y dist-upgrade
-    apt-get install -y ssh vim screen wget git rsyslog fail2ban cifs-utils colordiff
+    apt-get install -y ssh vim screen man-db wget git rsyslog fail2ban cifs-utils colordiff
     #apt-get install -y linuxlogo cmatrix sl mplayer curseofwar
   # USER ADDITION
     adduser --disabled-password --gecos "${NEWUSER}" ${NEWUSER}
@@ -82,10 +82,10 @@
       echo "# INIT.SH ADDITIONS" >> /home/${NEWUSER}/.bashrc
       echo "# Things automatically added by woosting's init.sh script:" >> /home/${NEWUSER}/.bashrc
       echo "#" >> /home/${NEWUSER}/.bashrc
-      
+
       # Color promot
         sed -i.bak 's/#force_color_prompt=yes/force_color_prompt=yes/g' /home/${NEWUSER}/.bashrc
-    
+
       # Git prompt
         apt-get install -y bash-completion && \
         sed -i '/\\w\\\[\\033\[00m\\\]\\\$/i \ \ \ \ export GIT_PS1_SHOWDIRTYSTATE=1' /home/${NEWUSER}/.bashrc && \
@@ -103,13 +103,13 @@
       echo "  alias weather='wget -qO- wttr.in'" >> /home/${NEWUSER}/.bashrc
       echo "  alias cpuhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head && uptime'" >> /home/${NEWUSER}/.bashrc
       echo "  alias memhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'" >> /home/${NEWUSER}/.bashrc
- 
+
       echo "# Starting ssh-agent" >> /home/${NEWUSER}/.bashrc
       echo '  if [ -z "$SSH_AUTH_SOCK" ] ; then' >> /home/${NEWUSER}/.bashrc
       echo '    eval `ssh-agent -s`' >> /home/${NEWUSER}/.bashrc
       echo '   ssh-add' >> /home/${NEWUSER}/.bashrc
       echo '  fi' >> /home/${NEWUSER}/.bashrc
- 
+
       echo "# Others" >> /home/${NEWUSER}/.bashrc
       echo "  export EDITOR=vim" >> /home/${NEWUSER}/.bashrc
 
@@ -126,7 +126,7 @@
 
   # DESKTOP TWEAKING
     if [ ${DENV} ]; then
-      # GENERAL INSTALLS 
+      # GENERAL INSTALLS
         apt-get install -y tightvncserver
 
         # INSTALL ATOM
@@ -134,7 +134,7 @@
         wget -P /tmp/ "https://atom.io/download/deb" && \
         dpkg -i /tmp/deb
 
-        
+
         # ADDING REPO AND INSTALLING QOWNNOTES
           # Trust the repo:
           wget http://download.opensuse.org/repositories/home:/pbek:/QOwnNotes/Debian_8.0/Release.key -O - | apt-key add -
