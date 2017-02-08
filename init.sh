@@ -134,15 +134,6 @@
         wget -P /tmp/ "https://atom.io/download/deb" && \
         dpkg -i /tmp/deb
 
-
-        # ADDING REPO AND INSTALLING QOWNNOTES
-          # Trust the repo:
-          wget http://download.opensuse.org/repositories/home:/pbek:/QOwnNotes/Debian_8.0/Release.key -O - | apt-key add -
-          # Add it to apt sources.list:
-          bash -c "echo 'deb http://download.opensuse.org/repositories/home:/pbek:/QOwnNotes/Debian_8.0/ /' >> /etc/apt/sources.list.d/qownnotes.list"
-          # Update apt-cache and install QOwnNotes:
-          apt-get update && apt-get install qownnotes
-
       # DOWNLOAD THEMING CONTENT
         mkdir /home/${NEWUSER}/Downloads && \
         mkdir /home/${NEWUSER}/Downloads/${DENV} && \
