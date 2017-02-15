@@ -26,3 +26,7 @@
 - Contacts:      Copy to sim
 - Security:
   - Theft:       Lockwatch
+- Navigation:
+  - Offline:     Navmi
+  - Social:      Waze
+  - Bike:        Google maps
