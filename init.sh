@@ -56,7 +56,7 @@
   else
   # UPDATE + UPGRADE + INSTALLS
     apt-get update && apt-get -y dist-upgrade
-    apt-get install -y ssh vim screen man-db wget git rsyslog fail2ban cifs-utils colordiff
+    apt-get install -y ssh vim screen man-db wget git rsyslog fail2ban cifs-utils p7zip colordiff
     #apt-get install -y linuxlogo cmatrix sl mplayer curseofwar
   # USER ADDITION
     adduser --disabled-password --gecos "${NEWUSER}" ${NEWUSER}
