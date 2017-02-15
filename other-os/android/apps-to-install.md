@@ -13,6 +13,8 @@
   - Secure:      Wire
   - Normal:      Telegram
 - Password mgr:  Keepass2Android
+- ISP:           BEN
+- Weather/rain:  Buienalarm
 - Nuts energy:   Mijn Nuon
 - Bank:          Mijn ING
 - Text transfer: Pushbullet
@@ -20,3 +22,7 @@
 - Retail:
   - Cheap        Lidl
   - Normal       Aldi
+  - Cheap        AliExpres
+- Contacts:      Copy to sim
+- Security:
+  - Theft:       Lockwatch
