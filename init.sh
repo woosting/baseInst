@@ -69,7 +69,10 @@
     usermod -aG sudo ${NEWUSER}
   # RSA CONFIG FOR USER
     mkdir /home/${NEWUSER}/.ssh/
-    touch /home/${NEWUSER}/.ssh/authorized_keys && chown ${NEWUSER}:${NEWUSER} -R /home/${NEWUSER}/.ssh && chmod 700 /home/${NEWUSER}/.ssh && chmod 600 /home/${NEWUSER}/.ssh/authorized_keys
+    touch /home/${NEWUSER}/.ssh/authorized_keys
+    chown ${NEWUSER}:${NEWUSER} -R /home/${NEWUSER}/.ssh
+    chmod 700 /home/${NEWUSER}/.ssh
+    chmod 600 /home/${NEWUSER}/.ssh/authorized_keys
   # CUSTOM SCRIPT DOWNLOADS
     mkdir /home/${NEWUSER}/scripts
     git clone https://github.com/woosting/dirp.git /home/${NEWUSER}/scripts/dirp && \
