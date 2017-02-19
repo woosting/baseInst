@@ -140,7 +140,7 @@
       echo "#if [ -f /usr/bin/linux_logo ]; then linuxlogo -u -y; fi" >> /home/${NEWUSER}/.bashrc
 
   # DESKTOP TWEAKING
-    if [ ${DENV} -le 0 ]; then
+    if [ "${DENV}" -le 0 ]; then
       echo -e "No desktop environment declared, not installing anything graphical."
     else
       echo -e "Desktop environment usage declared, installing graphical components."
