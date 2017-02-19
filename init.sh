@@ -24,12 +24,13 @@
 
   TODAY=$(date +%Y%m%d)
   NEWUSER=""
-  while getopts u:dh option
+  DENV=""
+  while getopts u:d:h option
     do
       case "${option}"
        in
         u) NEWUSER=(${OPTARG});;
-        d) DENV="lxde";;
+        d) DENV=(${OPTARG});;
         h)
           printHelp
           exit 0
@@ -42,10 +43,10 @@
 
   function printHelp () {
     echo -e "BASEINST - Base installation (2016, GNU GENERAL PUBLIC LICENSE)\n"
-    echo -e "USAGE: init [-d] -u username\n"
+    echo -e "USAGE: init -u username [-d gnome|lxde]\n"
     echo -e "Arguments:\n"
-    echo -e "       -u States the user to create or use (REQUIRED)"
-    echo -e "       -d Sets desktop environment to: LXDE (OPTIONAL)"
+    echo -e "       -u flags the user to create or use (REQUIRED)"
+    echo -e "       -d flags the desktop environment that is used (OPTIONAL)"
 }
 
 
@@ -139,7 +140,10 @@
       echo "#if [ -f /usr/bin/linux_logo ]; then linuxlogo -u -y; fi" >> /home/${NEWUSER}/.bashrc
 
   # DESKTOP TWEAKING
-    if [ ${DENV} ]; then
+    if [ -z ${DENV} ]; then
+      echo -e "No desktop environment declared, not installing anything graphical."
+    else
+      echo -e "${DENV} desktop environment declared, installing graphical stuff."
       # GENERAL INSTALLS
         apt-get install -y tightvncserver
 
@@ -154,3 +158,4 @@
         mkdir /home/${NEWUSER}/Downloads/theming/openbox && wget -P /home/${NEWUSER}/Downloads/theming/openbox https://dl.opendesktop.org/api/files/download/id/1460769323/69196-1977-openbox.obt
         mkdir /home/${NEWUSER}/Downloads/theming/icons && wget -P /home/${NEWUSER}/Downloads/theming/icons https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/faenza-icon-theme/faenza-icon-theme_1.3.zip
         chown ${NEWUSER}:${NEWUSER} -R /home/${NEWUSER}/Downloads
+      fi
