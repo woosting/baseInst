@@ -43,7 +43,7 @@
 
   function printHelp () {
     echo -e "BASEINST - Base installation (2016, GNU GENERAL PUBLIC LICENSE)\n"
-    echo -e "USAGE: init [-d] -u <username> \n"
+    echo -e "USAGE: init [-d] -u <username>\n"
     echo -e "Arguments:\n"
     echo -e "  -u <username> declares the user to create or use (REQUIRED)"
     echo -e "  -d            declares whether a desktop environment is to be used (OPTIONAL)"
