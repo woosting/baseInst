@@ -24,13 +24,13 @@
 
   TODAY=$(date +%Y%m%d)
   NEWUSER=""
-  DENV=""
-  while getopts u:d:h option
+  DENV=0
+  while getopts u:dh option
     do
       case "${option}"
        in
         u) NEWUSER=(${OPTARG});;
-        d) DENV=(${OPTARG});;
+        d) DENV=1;;
         h)
           printHelp
           exit 0
@@ -43,10 +43,10 @@
 
   function printHelp () {
     echo -e "BASEINST - Base installation (2016, GNU GENERAL PUBLIC LICENSE)\n"
-    echo -e "USAGE: init -u username [-d gnome|lxde]\n"
+    echo -e "USAGE: init -u <username> [-d]\n"
     echo -e "Arguments:\n"
-    echo -e "       -u flags the user to create or use (REQUIRED)"
-    echo -e "       -d flags the desktop environment that is used (OPTIONAL)"
+    echo -e "  -u <username> declares the user to create or use (REQUIRED)"
+    echo -e "  -d            declares whether a desktop environment is to be used (OPTIONAL)"
 }
 
 
@@ -140,10 +140,10 @@
       echo "#if [ -f /usr/bin/linux_logo ]; then linuxlogo -u -y; fi" >> /home/${NEWUSER}/.bashrc
 
   # DESKTOP TWEAKING
-    if [ -z ${DENV} ]; then
+    if [ ${DENV} -le 0 ]; then
       echo -e "No desktop environment declared, not installing anything graphical."
     else
-      echo -e "${DENV} desktop environment declared, installing graphical stuff."
+      echo -e "Desktop environment usage declared, installing graphical components."
       # GENERAL INSTALLS
         apt-get install -y tightvncserver
 
