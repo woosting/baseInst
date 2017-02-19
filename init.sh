@@ -151,6 +151,6 @@
       # DOWNLOAD THEMING CONTENT
         mkdir /home/${NEWUSER}/Downloads
         mkdir /home/${NEWUSER}/Downloads/theming
-        mkdir /home/${NEWUSER}/Downloads/theming/openbox && wget -P /home/${NEWUSER}/Downloads/${DENV}/openbox https://dl.opendesktop.org/api/files/download/id/1460769323/69196-1977-openbox.obt
-        mkdir /home/${NEWUSER}/Downloads/theming/icons && wget -P /home/${NEWUSER}/Downloads/${DENV}/icons https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/faenza-icon-theme/faenza-icon-theme_1.3.zip
+        mkdir /home/${NEWUSER}/Downloads/theming/openbox && wget -P /home/${NEWUSER}/Downloads/theming/openbox https://dl.opendesktop.org/api/files/download/id/1460769323/69196-1977-openbox.obt
+        mkdir /home/${NEWUSER}/Downloads/theming/icons && wget -P /home/${NEWUSER}/Downloads/theming/icons https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/faenza-icon-theme/faenza-icon-theme_1.3.zip
     fi
