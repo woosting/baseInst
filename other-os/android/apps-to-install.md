@@ -1,0 +1,36 @@
+- Google:         gapps (Google apps)
+- Barcode scan:   Barcode scanner
+- 2Factor:
+  - General:      Authy 2-Factor Authentication
+  - Blizzard:     Battlenet Authenticator
+  - Last Pass:    LastPass Authenticator
+  - Microsoft:    Microsoft Authenticator
+- News RSS:       Feedly
+- Social media:   Google+
+- Webbrowser:     Firefox
+- Sync:           Syncthing
+- Chat:
+  - Secure:       Wire
+  - Normal:       Telegram
+- Password mgr:   Keepass2Android
+- ISP:            BEN
+- Weather/rain:   Buienalarm
+- Nuts energy:    Mijn Nuon
+- Bank:           Mijn ING
+- Text transfer:  Pushbullet
+- Smartwatch:     Pebble
+- Retail:
+  - Cheap         Lidl
+  - Normal        Aldi
+  - Cheap         AliExpres
+- Contacts:       Copy to sim
+- Security:
+  - Theft:        Lockwatch
+- Navigation:
+  - Offline:      Navmi
+  - Social:       Waze
+  - Bike:         Google maps
+- Postal service:
+  - DutchPost:    PostNL
+- Todolist:       Simpletask Cloudless
+
