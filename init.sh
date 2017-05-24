@@ -59,9 +59,9 @@
     NEWUSER_IS_NEW=$(id -u ${NEWUSER} > /dev/null 2>&1; echo $?)
     
   # UPDATE + UPGRADE + INSTALLS
-    apt-get update && apt-get -y dist-upgrade
-    apt-get install -y ssh vim screen man-db wget git rsyslog fail2ban cifs-utils p7zip colordiff
-    #apt-get install -y linuxlogo cmatrix sl mplayer curseofwar
+    apt update && apt -y dist-upgrade
+    apt install -y ssh vim screen man-db wget git rsyslog fail2ban cifs-utils p7zip colordiff
+    #apt install -y linuxlogo cmatrix sl mplayer curseofwar
   # USER ADDITION
     if [ ${NEWUSER_IS_NEW} -eq 1 ]; then
       adduser --disabled-password --gecos "${NEWUSER}" ${NEWUSER}
@@ -102,7 +102,7 @@
         sed -i.bak 's/#force_color_prompt=yes/force_color_prompt=yes/g' /home/${NEWUSER}/.bashrc
 
       # Git prompt
-        apt-get install -y bash-completion && \
+        apt install -y bash-completion && \
         sed -i '/\\w\\\[\\033\[00m\\\]\\\$/i \ \ \ \ export GIT_PS1_SHOWDIRTYSTATE=1' /home/${NEWUSER}/.bashrc && \
         sed -i 's/\\w\\\[\\033\[00m\\\]\\\$/\\w\\[\\033[36m\\]$(__git_ps1)\\[\\033[00m\\]\\$/g' /home/${NEWUSER}/.bashrc && \
         echo "# GIT/Bash completion" >> /home/${NEWUSER}/.bashrc && \
@@ -145,10 +145,10 @@
     else
       echo -e "Desktop environment usage declared, installing graphical components."
       # GENERAL INSTALLS
-        apt-get install -y tightvncserver
+        apt install -y tightvncserver
 
         # INSTALL ATOM
-        apt-get install -y gvfs-bin && \
+        apt install -y gvfs-bin && \
         wget -P /tmp/ "https://atom.io/download/deb" && \
         dpkg -i /tmp/deb
 
