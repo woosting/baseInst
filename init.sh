@@ -60,7 +60,7 @@
     
   # UPDATE + UPGRADE + INSTALLS
     apt update && apt -y dist-upgrade
-    apt install -y ssh vim screen man-db wget git rsyslog fail2ban cifs-utils p7zip colordiff
+    apt install -y ssh vim screen man-db wget git rsyslog fail2ban cifs-utils p7zip colordiff ncdu
     #apt install -y linuxlogo cmatrix sl mplayer curseofwar
   # USER ADDITION
     if [ ${NEWUSER_IS_NEW} -eq 1 ]; then
