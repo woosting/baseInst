@@ -110,14 +110,15 @@
         echo "    . /etc/bash_completion" >> /home/${NEWUSER}/.bashrc && \
         echo "  fi" >> /home/${NEWUSER}/.bashrc
 
-      echo "# Aliasses" >> /home/${NEWUSER}/.bashrc
-      echo "  alias ls='ls --color=auto --group-directories-first'" >> /home/${NEWUSER}/.bashrc
-      echo "  alias grep='grep --color=auto'" >> /home/${NEWUSER}/.bashrc
-      echo "  alias fgrep='fgrep --color=auto'" >> /home/${NEWUSER}/.bashrc
-      echo "  alias egrep='egrep --color=auto'" >> /home/${NEWUSER}/.bashrc
-      echo "  alias weather='wget -qO- wttr.in'" >> /home/${NEWUSER}/.bashrc
-      echo "  alias cpuhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head && uptime'" >> /home/${NEWUSER}/.bashrc
-      echo "  alias memhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'" >> /home/${NEWUSER}/.bashrc
+      # Aliasses
+        echo "# Aliasses" >> /home/${NEWUSER}/.bashrc
+        echo "  alias ls='ls --color=auto --group-directories-first'" >> /home/${NEWUSER}/.bashrc
+        echo "  alias grep='grep --color=auto'" >> /home/${NEWUSER}/.bashrc
+        echo "  alias fgrep='fgrep --color=auto'" >> /home/${NEWUSER}/.bashrc
+        echo "  alias egrep='egrep --color=auto'" >> /home/${NEWUSER}/.bashrc
+        echo "  alias weather='wget -qO- wttr.in'" >> /home/${NEWUSER}/.bashrc
+        echo "  alias cpuhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head && uptime'" >> /home/${NEWUSER}/.bashrc
+        echo "  alias memhoggers='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'" >> /home/${NEWUSER}/.bashrc
 
       echo "# Starting ssh-agent" >> /home/${NEWUSER}/.bashrc
       echo '  if [ -z "$SSH_AUTH_SOCK" ] ; then' >> /home/${NEWUSER}/.bashrc
