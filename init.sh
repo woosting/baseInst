@@ -145,7 +145,7 @@
     else
       echo -e "Desktop environment usage declared, installing graphical components."
       # GENERAL INSTALLS
-        apt install -y tightvncserver faenza-icon-theme
+        apt install -y tightvncserver catfish faenza-icon-theme
 
         # INSTALL ATOM
         apt install -y gvfs-bin && \
